@@ -75,26 +75,26 @@ Recursos utilizados
 Getting Started
 ---------------
 
-1) Install Visual Studio/VS Code and Asp.net Core 3.1
+1) Install Visual Studio/VS Code and Asp.net Core 3.1:
 
-    ● https://dotnet.microsoft.com/download/dotnet/3.1
+    https://dotnet.microsoft.com/download/dotnet/3.1
 
 
-2) Configure connection string in appsettings.json
+2) Configure connection string in appsettings.json:
 
-    ● "ConnectionStrings": {
+    "ConnectionStrings": {
         "UnicoFeiraConn": "Data Source=(local)\\sqlexpress01;Initial Catalog=FeiraLivreDb;Integrated Security=True",
         "IdentityConnection": "Data Source=(local)\\sqlexpress01;Initial Catalog=FeiraLivreDb;Integrated Security=True"
       }
 
 
-3) Configure the path of CSV File in appsettings.json
+3) Configure the path of CSV File in appsettings.json:
 
-    ● "CsvFeira": { "Path": "\\Projetos\\unico\\Unico.FeiraLivre\\Unico.FeiraLivre\\Files\\FEIRAS_LIVRES\\CSV\\DEINFO_DADOS_AB_FEIRASLIVRES\\DEINFO_AB_FEIRASLIVRES_2014.csv" }
+    "CsvFeira": { "Path": "\\Projetos\\unico\\Unico.FeiraLivre\\Unico.FeiraLivre\\Files\\FEIRAS_LIVRES\\CSV\\DEINFO_DADOS_AB_FEIRASLIVRES\\DEINFO_AB_FEIRASLIVRES_2014.csv" }
 
-4) Configure the path of Serilog
+4) Configure the path of Serilog:
 
-    ● "Serilog": {
+    "Serilog": {
     "MinimumLevel": "Information",
     "WriteTo": [
       {
@@ -105,7 +105,7 @@ Getting Started
         }
       }
 
-5)  Create Database SqlServer
+5)  Create Database SqlServer:
 
     ● For running migration:
 
