@@ -3,8 +3,7 @@
 namespace Unico.FeiraLivre.Domain.Entities
 {
     public class Feira : BaseEntity
-    {
-        public int Id { get; set; }
+    {      
         public string Longitude { get; set; }
         public string Latitude { get; set; }
         public string SetCens { get; set; }
