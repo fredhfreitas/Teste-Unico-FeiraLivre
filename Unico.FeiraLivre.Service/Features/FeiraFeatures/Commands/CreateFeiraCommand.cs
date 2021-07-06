@@ -8,7 +8,7 @@ namespace Unico.FeiraLivre.Service.Features.FeiraFeatures.Commands
 {
     public class CreateFeiraCommand : IRequest<int>
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
         public string Longitude { get; set; }
         public string Latitude { get; set; }
         public string SetCens { get; set; }
