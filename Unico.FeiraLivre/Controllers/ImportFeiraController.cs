@@ -1,11 +1,13 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Microsoft.Extensions.DependencyInjection;
+using System.Configuration;
+using System.IO;
 using System.Threading.Tasks;
-using Unico.FeiraLivre.Service.Contract;
+using Unico.FeiraLivre.Service.Features.FeiraFeatures.Commands;
+using Unico.FeiraLivre.Service.Features.FeiraFeatures.Queries;
 
 namespace Unico.FeiraLivre.Controllers
 {
@@ -13,13 +15,14 @@ namespace Unico.FeiraLivre.Controllers
     [Route("api/v{version:apiVersion}/Importar")]
     [ApiVersion("1.0")]    
     public class ImportarController : ControllerBase
-    {
-        private readonly IImportFeiraService _importService;
+    {        
         private readonly IConfiguration _configuration;
-        public ImportarController(IImportFeiraService importService, IConfiguration configuration)
+        private IMediator _mediator;
+        protected IMediator Mediator => _mediator ??= HttpContext.RequestServices.GetService<IMediator>();
+
+        public ImportarController(IConfiguration configuration)
         {
             this._configuration = configuration;
-            this._importService = importService;
         }
 
         /// <summary>
@@ -29,8 +32,8 @@ namespace Unico.FeiraLivre.Controllers
         /// <returns></returns>
         [HttpPost("{sim}")]
         public async Task<IActionResult> ImportAsync(bool sim)
-        {
-            return Ok(await _importService.ImportFeiraAsync(sim, _configuration["CsvFeira:Path"]));
+        {            
+            return Ok(await Mediator.Send(new ImportFeiraCommand { Import = sim, Path = _configuration["CsvFeira:Path"]}));
         }
     }
 }

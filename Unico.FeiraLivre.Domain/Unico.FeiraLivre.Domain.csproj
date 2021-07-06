@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.4" />
+    <PackageReference Include="TinyCsvParser" Version="2.6.1" />
   </ItemGroup>
 
   <ItemGroup>

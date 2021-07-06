@@ -57,7 +57,6 @@ namespace Unico.FeiraLivre.Controllers
             return Ok(await Mediator.Send(new DeleteFeiraByIdCommand { Id = id }));
         }
 
-
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, UpdateFeiraCommand command)
         {
