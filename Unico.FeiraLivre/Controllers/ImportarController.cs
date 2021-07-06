@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using System;
 using System.Threading.Tasks;
 using Unico.FeiraLivre.Service.Features.FeiraFeatures.Commands;
 
@@ -13,12 +15,14 @@ namespace Unico.FeiraLivre.Controllers
     public class ImportarController : ControllerBase
     {        
         private readonly IConfiguration _configuration;
+        public ILogger<ImportarController> _logger { get; }
         private IMediator _mediator;
         protected IMediator Mediator => _mediator ??= HttpContext.RequestServices.GetService<IMediator>();
-
-        public ImportarController(IConfiguration configuration)
+       
+        public ImportarController(IConfiguration configuration, ILogger<ImportarController> logger)
         {
-            this._configuration = configuration;
+            _configuration = configuration;
+            _logger = logger;
         }
 
         /// <summary>
@@ -28,8 +32,19 @@ namespace Unico.FeiraLivre.Controllers
         /// <returns></returns>
         [HttpPost("{sim}")]
         public async Task<IActionResult> ImportAsync(bool sim)
-        {            
-            return Ok(await Mediator.Send(new ImportFeiraCommand { Import = sim, Path = _configuration["CsvFeira:Path"]}));
+        {
+            _logger.LogTrace("Inicio da importação do csv.");
+
+            try
+            {
+                return Ok(await Mediator.Send(new ImportFeiraCommand { Import = sim, Path = _configuration["CsvFeira:Path"] }));
+            }
+            catch(Exception e)
+            {
+                _logger.LogError(string.Format("Erro ao realizar a importação de dados. {0}", e.Message));
+
+                return StatusCode(500, e.Message);
+            }            
         }
     }
 }

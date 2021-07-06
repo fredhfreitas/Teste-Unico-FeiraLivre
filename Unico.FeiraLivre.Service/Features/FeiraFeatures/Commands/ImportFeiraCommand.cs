@@ -1,6 +1,4 @@
 ﻿using MediatR;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +16,7 @@ namespace Unico.FeiraLivre.Service.Features.FeiraFeatures.Commands
     public class ImportFeiraCommand : IRequest<Response<string>>
     {
         public bool Import { get; set; }
-        public string Path { get; set; }                
+        public string Path { get; set; }        
 
         public static IEnumerable<FeiraCsv> ReadCsv(string absolutePath)
         {
@@ -76,7 +74,7 @@ namespace Unico.FeiraLivre.Service.Features.FeiraFeatures.Commands
                     }
                     return new Response<string>($"Registros importados com sucesso");
                 }
-                catch (System.Exception ex)
+                catch (Exception ex)
                 {
                     //Em caso de erro retorna apiExcetion e grava o log de erro                   
                     throw new ApiException("Erro ao importar os dados: " + ex.Message);
