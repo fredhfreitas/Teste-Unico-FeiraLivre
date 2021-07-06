@@ -1,4 +1,4 @@
-﻿Unico Feira Feira API
+﻿Unico Feira Livre API
 =================================
 
 Proposta:
