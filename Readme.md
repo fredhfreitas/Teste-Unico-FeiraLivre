@@ -11,13 +11,13 @@ Escopo
 ------
 Utilizando os dados do arquivo “DEINFO_AB_FEIRASLIVRES_2014.csv”, implemente:
 
-● cadastro de uma nova feira;
+● Cadastro de uma nova feira;
 
-● exclusão de uma feira através de seu código de registro;
+● Exclusão de uma feira através de seu código de registro;
 
-● alteração dos campos cadastrados de uma feira, exceto seu código de registro;
+● Alteração dos campos cadastrados de uma feira, exceto seu código de registro;
 
-● busca de feiras utilizando ao menos um dos parâmetros abaixo:
+● Busca de feiras utilizando ao menos um dos parâmetros abaixo:
 
     ○ distrito
     ○ regiao5
@@ -27,23 +27,23 @@ Utilizando os dados do arquivo “DEINFO_AB_FEIRASLIVRES_2014.csv”, implemente
 Requisitos
 ------
 
-● utilize git ou hg para fazer o controle de versão da solução do teste e hospede-a no Github ou Bitbucket;
+● Utilize git ou hg para fazer o controle de versão da solução do teste e hospede-a no Github ou Bitbucket;
 
-● armazene os dados fornecidos pela Prefeitura de São Paulo em um banco de dados relacional que você julgar apropriado;
+● Armazene os dados fornecidos pela Prefeitura de São Paulo em um banco de dados relacional que você julgar apropriado;
 
-● a solução deve conter um script para importar os dados do arquivo “DEINFO_AB_FEIRASLIVRES_2014.csv” para o banco relacional;
+● A solução deve conter um script para importar os dados do arquivo “DEINFO_AB_FEIRASLIVRES_2014.csv” para o banco relacional;
 
-● a API deve seguir os conceitos REST;
+● A API deve seguir os conceitos REST;
 
-● o Content-Type das respostas da API deve ser “application/json";
+● O Content-Type das respostas da API deve ser “application/json";
 
-● o código da solução deve conter testes e algum mecanismo documentado para gerar a informação de cobertura dos testes;
+● O código da solução deve conter testes e algum mecanismo documentado para gerar a informação de cobertura dos testes;
 
-● a aplicação deve gravar logs estruturados em arquivos texto;
+● A aplicação deve gravar logs estruturados em arquivos texto;
 
-● a solução desta avaliação deve estar documentada em português ou inglês. Escolha um idioma em que você seja fluente;
+● A solução desta avaliação deve estar documentada em português ou inglês. Escolha um idioma em que você seja fluente;
 
-● a documentação da solução do teste deve incluir como rodar o projeto e exemplos de requisições e suas possíveis respostas;
+● A documentação da solução do teste deve incluir como rodar o projeto e exemplos de requisições e suas possíveis respostas;
 
 
 Recursos utilizados
