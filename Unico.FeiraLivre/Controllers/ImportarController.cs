@@ -1,13 +1,9 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System.Configuration;
-using System.IO;
 using System.Threading.Tasks;
 using Unico.FeiraLivre.Service.Features.FeiraFeatures.Commands;
-using Unico.FeiraLivre.Service.Features.FeiraFeatures.Queries;
 
 namespace Unico.FeiraLivre.Controllers
 {
