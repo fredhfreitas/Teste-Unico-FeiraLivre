@@ -29,7 +29,8 @@ namespace Unico.FeiraLivre.Persistence
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder
-                .UseSqlServer("DataSource=app.db");
+                .UseSqlServer(connectionString: "UnicoFeiraConn");
+                
             }
 
         }
