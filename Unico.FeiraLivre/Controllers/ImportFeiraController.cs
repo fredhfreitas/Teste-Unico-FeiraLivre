@@ -10,13 +10,13 @@ using Unico.FeiraLivre.Service.Contract;
 namespace Unico.FeiraLivre.Controllers
 {
     [ApiController]
-    [Route("api/v{version:apiVersion}/Import")]
+    [Route("api/v{version:apiVersion}/Importar")]
     [ApiVersion("1.0")]    
-    public class ImportDataController : ControllerBase
+    public class ImportarController : ControllerBase
     {
         private readonly IImportFeiraService _importService;
         private readonly IConfiguration _configuration;
-        public ImportDataController(IImportFeiraService importService, IConfiguration configuration)
+        public ImportarController(IImportFeiraService importService, IConfiguration configuration)
         {
             this._configuration = configuration;
             this._importService = importService;
@@ -27,10 +27,10 @@ namespace Unico.FeiraLivre.Controllers
         /// </summary>
         /// <param name="yes">bool importar true/false</param>
         /// <returns></returns>
-        [HttpPost("{yes}")]
-        public async Task<IActionResult> ImportAsync(bool yes)
+        [HttpPost("{sim}")]
+        public async Task<IActionResult> ImportAsync(bool sim)
         {
-            return Ok(await _importService.ImportFeiraAsync(yes, _configuration["CsvFeira:Path"]));
+            return Ok(await _importService.ImportFeiraAsync(sim, _configuration["CsvFeira:Path"]));
         }
     }
 }
