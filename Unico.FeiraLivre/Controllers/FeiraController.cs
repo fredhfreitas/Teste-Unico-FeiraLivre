@@ -1,7 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Configuration;
+using System.IO;
 using System.Threading.Tasks;
 using Unico.FeiraLivre.Service.Features.FeiraFeatures.Commands;
 using Unico.FeiraLivre.Service.Features.FeiraFeatures.Queries;
@@ -14,8 +17,14 @@ namespace Unico.FeiraLivre.Controllers
     [ApiVersion("1.0")]
     public class FeiraController : ControllerBase
     {
-        private IMediator _mediator;
+        private IConfiguration _configuration;
+        private IMediator _mediator;        
         protected IMediator Mediator => _mediator ??= HttpContext.RequestServices.GetService<IMediator>();
+
+        public FeiraController(IConfiguration configRoot)
+        {
+            _configuration = (IConfigurationRoot)configRoot;
+        }
 
         [HttpPost]
         public async Task<IActionResult> Create(CreateFeiraCommand command)
@@ -58,5 +67,6 @@ namespace Unico.FeiraLivre.Controllers
             }
             return Ok(await Mediator.Send(command));
         }
+
     }
 }

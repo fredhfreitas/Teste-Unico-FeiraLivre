@@ -52,6 +52,8 @@ namespace Unico.FeiraLivre
 
             services.AddVersion();
 
+            services.AddServiceLayer();
+
             services.AddHealthCheck(AppSettings, Configuration);
 
             services.AddFeatureManagement();
