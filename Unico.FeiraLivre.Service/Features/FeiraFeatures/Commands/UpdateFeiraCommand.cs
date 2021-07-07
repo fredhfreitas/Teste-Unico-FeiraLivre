@@ -43,22 +43,22 @@ namespace Unico.FeiraLivre.Service.Features.FeiraFeatures.Commands
                 else
                 {
                     //feira.Id = request.Id;
-                    feira.Longitude = request.Longitude;
-                    feira.Latitude = request.Latitude;
-                    feira.SetCens = request.SetCens;
-                    feira.AreaP = request.AreaP;
-                    feira.CodDist = request.CodDist;
+                    //feira.Longitude = request.Longitude;
+                    //feira.Latitude = request.Latitude;
+                    //feira.SetCens = request.SetCens;
+                    //feira.AreaP = request.AreaP;
+                    //feira.CodDist = request.CodDist;
                     feira.Distrito = request.Distrito;
-                    feira.CodSubPref = request.CodSubPref;
-                    feira.SubPref = request.SubPref;
-                    feira.Regiao05 = request.Regiao05;
-                    feira.Regiao08 = request.Regiao08;
-                    feira.NomeFeira = request.NomeFeira;
-                    feira.Registro = request.Registro;
-                    feira.Logradouro = request.Logradouro;
-                    feira.Numero = request.Numero;
-                    feira.Bairro = request.Bairro;
-                    feira.Referencia = request.Referencia;
+                    //feira.CodSubPref = request.CodSubPref;
+                    //feira.SubPref = request.SubPref;
+                    //feira.Regiao05 = request.Regiao05;
+                    //feira.Regiao08 = request.Regiao08;
+                    //feira.NomeFeira = request.NomeFeira;
+                    //feira.Registro = request.Registro;
+                    //feira.Logradouro = request.Logradouro;
+                    //feira.Numero = request.Numero;
+                    //feira.Bairro = request.Bairro;
+                    //feira.Referencia = request.Referencia;
 
                     _context.Feira.Update(feira);
                     await _context.SaveChangesAsync();
