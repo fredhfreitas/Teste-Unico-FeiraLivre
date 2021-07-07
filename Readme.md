@@ -119,10 +119,20 @@ Getting Started
 Health check UI
 ---------------
 https://localhost:{port_number}/healthcheck-ui
-
+![](Unico.FeiraLivre/Files/checkui.png)
 
 
 Swagger UI
 ---------------
 https://localhost:{port_number}/OpenAPI/index.html
+![](Unico.FeiraLivre/Files/swagger.png)
+
+
+Evidencia de funcionamento da API
+---------------
+![](Unico.FeiraLivre/Files/api.png)
+
+
+Evidencia de funcionamento da API
+---------------
 ![](Unico.FeiraLivre/Files/swagger.png)
