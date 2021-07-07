@@ -40,18 +40,21 @@ namespace Unico.FeiraLivre.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(int id)
+        public async Task<IActionResult> GetById(int id, string distrito)
         {
             _logger.LogTrace("GetById Iniciando");
-            return Ok(await Mediator.Send(new GetFeiraByIdQuery { Id = id }));
+            if(string.IsNullOrEmpty(distrito))
+                return Ok(await Mediator.Send(new GetFeiraByIdQuery { Id = id }));
+            else
+                return Ok(await Mediator.Send(new GetFeiraByDistritoQuery { Distrito = distrito }));
         }
 
-        [HttpGet("distrito/{value}")]
-        public async Task<IActionResult> GetByDistrito(string value)
-        {
-            _logger.LogDebug("GetByDistrito Iniciando");
-            return Ok(await Mediator.Send(new GetFeiraByDistritoQuery { Distrito = value }));
-        }
+        //[HttpGet("{distrito}")]
+        //public async Task<IActionResult> GetByDistrito(string id, string distrito)
+        //{
+        //    _logger.LogDebug("GetByDistrito Iniciando");
+        //    return Ok(await Mediator.Send(new GetFeiraByDistritoQuery { Distrito = distrito }));
+        //}
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
