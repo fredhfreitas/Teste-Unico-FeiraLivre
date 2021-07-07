@@ -75,9 +75,7 @@ Recursos utilizados
 Getting Started
 ---------------
 
-1) Install Visual Studio/VS Code and Asp.net Core 3.1:
-
-    https://dotnet.microsoft.com/download/dotnet/3.1
+1) Install Visual Studio/VS Code 
 
 
 2) Configure connection string in appsettings.json:
