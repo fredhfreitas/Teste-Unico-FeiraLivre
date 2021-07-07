@@ -46,7 +46,7 @@ namespace Unico.FeiraLivre.Controllers
             if(string.IsNullOrEmpty(distrito))
                 return Ok(await Mediator.Send(new GetFeiraByIdQuery { Id = id }));
             else
-                return Ok(await Mediator.Send(new GetFeiraByDistritoQuery { Distrito = distrito }));
+                return Ok(await Mediator.Send(new GetFeiraByDistritoQuery { Distrito = distrito })); 
         }
 
         //[HttpGet("{distrito}")]
