@@ -1,4 +1,4 @@
-﻿Unico Feira Feira API
+﻿Unico Feira Livre API
 =================================
 
 Proposta:
@@ -112,11 +112,8 @@ Getting Started
         ●  Option 1: Using Package Manager Console:
             ● Open Package Manager Console, select << ProjectName >>.Persistence as Default Project
             ● Run these commands:
-                PM> add-migration Initial-commit-Application -Context ApplicationDbContext -o Migrations/Application
-                PM> add-migration Identity-commit -Context IdentityContext -o Migrations/Identity
-
+                PM> add-migration Initial-commit-Application -Context ApplicationDbContext -o Migrations/Application                
                 PM> update-database -Context ApplicationDbContext 
-                PM> update-database -Context IdentityContext 
 
 
 
