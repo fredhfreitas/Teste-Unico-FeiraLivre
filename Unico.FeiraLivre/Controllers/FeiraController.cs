@@ -9,8 +9,7 @@ using Unico.FeiraLivre.Service.Features.FeiraFeatures.Commands;
 using Unico.FeiraLivre.Service.Features.FeiraFeatures.Queries;
 
 namespace Unico.FeiraLivre.Controllers
-{
-    [Authorize]
+{    
     [ApiController]
     [Route("api/v{version:apiVersion}/Feira")]
     [ApiVersion("1.0")]

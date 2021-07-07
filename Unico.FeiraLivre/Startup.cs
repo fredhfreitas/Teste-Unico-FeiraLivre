@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Server.IISIntegration;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
@@ -38,6 +39,8 @@ namespace Unico.FeiraLivre
 
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddAuthentication(IISDefaults.AuthenticationScheme);
+
             services.AddController();
 
             services.AddDbContext(Configuration, configRoot);
@@ -82,7 +85,7 @@ namespace Unico.FeiraLivre
 
             app.UseRouting();
 
-            app.UseAuthentication();
+            //app.UseAuthentication();
 
             app.UseAuthorization();
             app.ConfigureSwagger();
