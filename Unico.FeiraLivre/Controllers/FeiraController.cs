@@ -47,7 +47,7 @@ namespace Unico.FeiraLivre.Controllers
             return Ok(await Mediator.Send(new GetFeiraByIdQuery { Id = id }));
         }
 
-        [HttpGet("{distrito}")]
+        [HttpGet("distrito/{id}")]
         public async Task<IActionResult> GetByDistrito(string distrito)
         {
             _logger.LogDebug("GetByDistrito Iniciando");

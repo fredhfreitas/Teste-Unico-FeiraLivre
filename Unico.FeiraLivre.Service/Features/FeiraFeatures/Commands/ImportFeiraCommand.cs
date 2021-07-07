@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using TinyCsvParser;
 using Unico.FeiraLivre.Domain.Common;
 using Unico.FeiraLivre.Domain.Dto;
+using Unico.FeiraLivre.Domain.Entities;
 using Unico.FeiraLivre.Persistence;
 using Unico.FeiraLivre.Service.Exceptions;
 
@@ -49,26 +50,27 @@ namespace Unico.FeiraLivre.Service.Features.FeiraFeatures.Commands
                             if (dado != null)
                             {
                                 Console.WriteLine("dado:" + dado.NOME_FEIRA);
+                                
+                                var feira = new Feira();
+                                feira.Longitude = dado.LONG;
+                                feira.Latitude = dado.LAT;
+                                feira.SetCens = dado.SETCENS;
+                                feira.AreaP = dado.AREAP;
+                                feira.CodDist = dado.CODDIST;
+                                feira.Distrito = dado.DISTRITO;
+                                feira.CodSubPref = dado.CODSUBPREF;
+                                feira.SubPref = dado.SUBPREFE;
+                                feira.Regiao05 = dado.REGIAO5;
+                                feira.Regiao08 = dado.REGIAO8;
+                                feira.NomeFeira = dado.NOME_FEIRA;
+                                feira.Registro = dado.REGISTRO;
+                                feira.Logradouro = dado.LOGRADOURO;
+                                feira.Numero = dado.NUMERO;
+                                feira.Bairro = dado.BAIRRO;
+                                feira.Referencia = dado.REFERENCIA;
 
-                                var create = new CreateFeiraCommand
-                                {
-                                    Longitude = dado.LONG,
-                                    Latitude = dado.LAT,
-                                    SetCens = dado.SETCENS,
-                                    AreaP = dado.AREAP,
-                                    CodDist = dado.CODDIST,
-                                    Distrito = dado.DISTRITO,
-                                    CodSubPref = dado.CODSUBPREF,
-                                    SubPref = dado.SUBPREFE,
-                                    Regiao05 = dado.REGIAO5,
-                                    Regiao08 = dado.REGIAO8,
-                                    NomeFeira = dado.NOME_FEIRA,
-                                    Registro = dado.REGISTRO,
-                                    Logradouro = dado.LOGRADOURO,
-                                    Numero = dado.NUMERO,
-                                    Bairro = dado.BAIRRO,
-                                    Referencia = dado.REFERENCIA
-                                };
+                                _context.Feira.Add(feira);
+                                await _context.SaveChangesAsync();                                
                             }
                         }
                     }
