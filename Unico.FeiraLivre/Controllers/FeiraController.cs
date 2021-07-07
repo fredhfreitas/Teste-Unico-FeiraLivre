@@ -46,11 +46,11 @@ namespace Unico.FeiraLivre.Controllers
             return Ok(await Mediator.Send(new GetFeiraByIdQuery { Id = id }));
         }
 
-        [HttpGet("distrito/{id}")]
-        public async Task<IActionResult> GetByDistrito(string distrito)
+        [HttpGet("distrito/{value}")]
+        public async Task<IActionResult> GetByDistrito(string value)
         {
             _logger.LogDebug("GetByDistrito Iniciando");
-            return Ok(await Mediator.Send(new GetFeiraByDistritoQuery { Distrito = distrito }));
+            return Ok(await Mediator.Send(new GetFeiraByDistritoQuery { Distrito = value }));
         }
 
         [HttpDelete("{id}")]
@@ -61,14 +61,9 @@ namespace Unico.FeiraLivre.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, UpdateFeiraCommand command)
-        {
-            if (id != command.Id)
-            {
-                _logger.LogWarning(string.Format("Erro ao atualizar por id:{0}", id.ToString()));
-                return BadRequest();
-            }
-            return Ok(await Mediator.Send(command));
+        public async Task<IActionResult> Update(int id, string distrito)
+        {            
+            return Ok(await Mediator.Send(new UpdateFeiraCommand { Id = id, Distrito = distrito }));
         }
 
     }
