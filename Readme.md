@@ -131,8 +131,3 @@ https://localhost:{port_number}/OpenAPI/index.html
 Evidencia de funcionamento da API
 ---------------
 ![](Unico.FeiraLivre/Files/api.png)
-
-
-Evidencia de funcionamento da API
----------------
-![](Unico.FeiraLivre/Files/swagger.png)
